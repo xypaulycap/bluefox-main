@@ -1,0 +1,120 @@
+{% extends 'dash/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+   <body class="" >
+      <noscript>You need to enable JavaScript to run this app.</noscript>
+      <div id="root">
+         <div class="Toastify"></div>
+       
+         <main>
+            <div class="section section-lg pt-5 pt-md-7 bg-gray-200">
+               <div class="container">
+                  <div class="row pt-5 pt-md-0">
+                     {% include 'dash/head.html' %}
+                     <div class="col-12 col-lg-8">
+                        <div class="row">
+                           <div class="col-md-6 mb-3 mt-2">
+                              <div class="h5 mb-4">Select Withdrawal Balance </div>
+                              <div class="card mb-2" style="border: 2px solid rgb(0, 0, 0);">
+                                 <div class="card-body d-block d-md-flex align-items-center">
+                                    <div class="icon icon-shape icon-md icon-shape-primary rounded-circle me-3 mb-4 mb-md-0"><span class="fas fa-wallet"></span></div>
+                                    <div>
+                                       <span class="d-block h6 fw-normal">Wallet Balance</span>
+                                       <h5 class="h3 fw-bold mb-1">${{user.wal_bal|floatformat:2|intcomma}}</h5>
+                                       <div class="small mt-2"><small>Investments are added after it elapses</small></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-block d-md-flex align-items-center">
+                                    <div class="icon icon-shape icon-md icon-shape-primary rounded-circle me-3 mb-4 mb-md-0"><span class="fas fa-file-invoice-dollar"></span></div>
+                                    <div>
+                                       <span class="d-block h6 fw-normal">Referral Balance</span>
+                                       <h5 class="h3 fw-bold mb-1">$0.00</h5>
+                                       <div class="small mt-2"><small>Referral Bonus from downline</small></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-6 mb-4">
+                              <div class="card">
+                                 <div class="card-body">
+                                    <div class="mb-4" style="font-size: 17px;"><b>Wallet WIthdrawal</b></div>
+                                    <div class="mt-2 mb-2 row" style="font-size: 14px;">
+                                      
+                                    </div>
+                                    <div class="row">
+                                     <form action="" method="post">
+                                       {% csrf_token %}
+                                       {% include 'messages.html' %}
+                                       <div class="col-12 mt-2">
+                                          <div class="mb-2">
+                                             <label for="walletInput" style="font-size: 14px;">Input Wallet</label>
+
+                                             <div class="input-group"><input type="text" class="form-control" name="wal" placeholder="0x023" value="" style="font-size: 13px;"></div>
+                                             </div>
+                                          </div>
+                                          <div class="mb-2">
+                                             <label for="amountInput" style="font-size: 14px;">Enter Amount</label>
+                                             <div class="input-group"><input type="number" class="form-control" name="amm" placeholder="0.00" value="" style="font-size: 13px;"></div>
+                                          </div>
+                                          <button class="btn btn-tertiary mt-2" type="submit" style="width: 100%;">Submit</button>
+                                       </div>
+                                     </form>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row mt-3">
+                           <div class="col-12 mb-4">
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+                                    <div class="d-block">
+                                       <div class="h5 fw-normal text-gray mt-2">Withdrawal Transactions</div>
+                                    </div>
+                                    <div class="d-flex ms-auto"><button class="btn border-gray-300 btn-sm me-3 btn-white">Month</button><button class="btn btn-sm me-3 btn-tertiary">All</button></div>
+                                 </div>
+                                 <div class="card-body">
+                                    <div style="width: 100%; height: auto;">
+                                       <div class="table-responsive">
+                                          <table class="table">
+                                             <thead>
+                                                <tr>
+                                                   <th>Date</th>
+                                                   <th>Amount</th>
+                                                   
+                                                   <th>Address</th>
+                                                 
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                {% for i in wallet %}
+                                                <tr>
+                                                   <td>{{i.date}} {{i.time}}</td>
+                                                   <td>${{i.amount}}</td>
+                                                   
+                                                   <td>{{i.wallet}}</td>
+                                                   <!-- <td class="bg-success text-white">Success</td> -->
+                                                </tr>
+                                                {% endfor %}
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+       
+      </div>
+     
+   </body>
+ 
+   {% endblock content %}

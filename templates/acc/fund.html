@@ -1,0 +1,84 @@
+{% extends 'acc/base.html' %}
+{% load static %}
+{% block content %}
+<body class="dashboard">
+
+
+    <div class="content-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="page-title">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-xl-4">
+                                <div class="page-title-content">
+                                    <h3>Payment Method</h3>
+                                    <p class="mb-2">Welcome to our Payment Method page</p>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="breadcrumbs"><a href="#">Settings </a><span><i class="ri-arrow-right-s-line"></i></span><a href="#">Payment Method</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-12">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title"> Payment method </h4>
+                                </div>
+                                <div class="card-body">
+                                    {% for i in wal %}
+                                    <div class="verify-content">
+                                        <div class="d-flex align-items-center">
+                                            <span class="me-3 icon-circle  text-white"><img src="{{i.image.url}}"  width="30" class="ri-bank-line"></span>
+                                            <div class="primary-number">
+                                                <h5 class="mb-0">{{i.name}}</h5>
+                                                <small>{{i.wallet}}</small>
+                                                <br>
+                                                <span class="text-success">Verified</span>
+                                            </div>
+                                        </div>
+                                      <a href="{% url 'userurl:pay' i.slug %}">  <button class=" btn btn-outline-primary">Pay</button></a>
+                                    </div>
+                                    <hr class="dropdown-divider my-4">
+                                    {% endfor %}
+                                  
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+{% endblock content %}

@@ -1,0 +1,61 @@
+
+
+{% extends 'dash/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+   <body>
+      
+      <div id="root">
+       
+         <main>
+            <div class="section section-lg pt-5 pt-md-7 bg-gray-200">
+               <div class="container">
+                  <div class="row pt-5 pt-md-0">
+                     {% include 'dash/head.html' %}
+                     <div class="col-12 col-lg-8">
+                        <div class="col-12 mb-4">
+                           <div class="h5 text-left">Investment Packages</div>
+                        </div>
+                        <div class="row">
+                           {% for i in con %}
+                           <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+                              <div class="card shadow border-gray-300 text-center py-4">
+                                 <div class="card-header border-0 bg-white p-3">
+                                    <h2 class="h3 text-primary mb-4">{{i.name}}</h2>
+                                    <span class="d-block"><span class="display-4 text-tertiary fw-bold "><span class="align-top font-medium">$</span>{{i.mindeposit}} </span><span class="d-block text-gray font-small">/ min</span></span>
+                                 </div>
+                                 <div class="card-body">
+                                    <ul class="list-unstyled mb-4">
+                                       <li class="list-item pb-3">Max: <strong>${{i.maxdeposit}}</strong></li>
+                                       <li class="list-item pb-3">Interest Rate: <strong>{{i.ref}}%</strong></li>
+                                       <li class="list-item pb-3">Duration: <strong>{{i.days}}</strong></li>
+                                    </ul>
+                                    <form method="post" action="">
+                                       {% csrf_token %}
+                                       {% include 'messages.html' %}
+                             <h5 class="text-light">Amount to invest: (${{i.mindeposit}} default)</h5>
+                             <input type="number" min="{{i.mindeposit}}" max="{{i.maxdeposit}}" name="price" placeholder="Enter Amount" class="form-control text-light bg-dark"> <br>
+                                       <input type="hidden" name="duration" value="{{i.duration}}">
+                                       <input type="hidden" name="name" value="{{i.name}}">
+                             <!-- <input type="hidden" name="user" value="{{request.user.username}}"> -->
+                             <div class="d-grid"><button type="submit" class="btn btn-tertiary">Select Package</button></div>
+                          </form>
+                                    
+                                 </div>
+                              </div>
+                              <br>
+                           </div>
+                          {% endfor %}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+        
+      </div>
+    
+   </body>
+ 
+   {% endblock content %}

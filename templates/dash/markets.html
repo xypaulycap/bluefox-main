@@ -1,0 +1,108 @@
+{% extends 'dash/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+   <body>
+     
+      <div id="root">
+         <div class="Toastify"></div>
+        
+         <main>
+            <div class="section section-lg pt-5 pt-md-7 bg-gray-200">
+               <div class="container">
+                  <div class="row pt-5 pt-md-0">
+                     {% include 'dash/head.html' %}
+                     <div class="col-12 col-lg-8">
+                        <div class="row">
+                           <div class="col-lg-12">
+                              <div class="card border-gray-300 p-0 p-md-4 mb-4 ">
+                                 <div class="card-body">
+                                    <div class="d-flex" style="justify-content: space-between;">
+                                       <h3 class="h5 mb-3" style="border-bottom: 3px solid rgb(0, 0, 0); padding: 0px 10px 10px 5px; display: inline-block;">Market <i class="fa fa-pie-chart"></i> </h3>
+                                       <div><a href="/user/copy-trades/"><button class="btn btn-link btn-sm text-tertiary"><i class="fa fa-plus"></i> New Trade</button></a></div>
+                                    </div>
+                                    <div class="row">
+                                       <div class="col-md-6 lg-card-image mb-5" style="background-image: url(https://app.bluefoxs.capital/static/media/blogging.673aaa66352632f1753c.gif);"></div>
+                                       <div class="col-md-6" style="height: 400px;"><iframe src="https://bluefoxs.capital/charts/gainers/light" width="100%" height="390px" title="chart"></iframe></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-12">
+                              <div class="card border-gray-300 p-0  mb-4 ">
+                                 <div class="card-body" style="margin-bottom: -10px;">
+                                    <h3 class="h5 mb-3" style="border-bottom: 3px solid rgb(0, 0, 0); padding: 0px 10px 10px 5px; display: inline-block;">Recent Trades</h3>
+                                 </div>
+                              </div>
+                              <div class="row" style="max-height: 480px; overflow-y: auto;">
+                                 {% for i in depo %}
+                                 <div class="col-md-6">
+                                    <div class="card border-gray-300 p-0  mb-4 " style="cursor: pointer;">
+                                       <div class="card-body">
+                                          <div style="display: flex; justify-content: space-between;">
+                                             <div>
+                                                {% if i.approve %}
+                                                <div><b><i class="fa fa-circle" style="font-size: 11px; color:greenyellow;"></i> &nbsp;{{i.msg}}</b></div>
+                                                {% else %}
+                                                <div><b><i class="fa fa-circle" style="font-size: 11px; color: red;"></i> &nbsp;{{i.msg}}</b></div>
+                                                {% endif %}
+                                                <div class="mt-2">{{i.name}} </div>
+                                                <div class="mb-3"><small>{{i.created_at}}</small></div>
+                                             </div>
+                                             <div>
+                                                <div style="padding: 20px;">
+                                                   <div style="padding: 5px 10px; background-color: rgb(238, 238, 238); border-radius: 10px; font-size: 13px;"><b>Live trade</b></div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div>
+                                             <div class="row mb-2">
+                                                <div class="col-4" style="font-size: 13px;">
+                                                   <span>Amount:</span>
+                                                   <h5 class="h6 fw-bold mb-1">${{i.ammount}}</h5>
+                                                </div>
+                                                <div class="col-4" style="font-size: 13px;">
+                                                   <span>TP %:</span>
+                                                   <h5 class="h6 fw-bold mb-1">{{i.profit}}</h5>
+                                                </div>
+                                                <div class="col-4" style="font-size: 13px;">
+                                                   <span>Duration:</span>
+                                                   <h5 class="h6 fw-bold mb-1">{{i.duration}}</h5>
+                                                </div>
+                                             </div>
+                                             <div class="row mb-2">
+                                                <div class="col-4" style="font-size: 13px;">
+                                                   <span>Order Type:</span>
+                                                   <h5 class="h6 fw-bold mb-1">Market execution</h5>
+                                                </div>
+                                                <div class="col-4" style="font-size: 13px;">
+                                                   <span>Entry:</span>
+                                                   <h5 class="h6 fw-bold mb-1">{{i.ex}}</h5>
+                                                </div>
+                                                <div class="col-4" style="font-size: 13px;">
+                                                   <span>Direction:</span>
+                                                   <h5 class="h6 fw-bold mb-1">{{i.order}}</h5>
+                                                </div>
+                                             </div>
+                                             <span>Total Return:</span>
+                                             <h5 class="h4 fw-bold mb-1">{{i.total}}</h5>
+                                             <div class="small mt-2 text-success"><span class="fas fa-angle-up "></span></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+        
+      </div>
+      
+   </body>
+
+   {% endblock content %}

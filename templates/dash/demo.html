@@ -1,0 +1,263 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="theme-color" content="#ffffff">
+      <link rel="apple-touch-icon" sizes="120x120" href="/logo.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/logo.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/logo.png">
+      <link rel="mask-icon" href="/logo.png" color="#ffffff">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <link rel="stylesheet" href="/static/vendor/@glidejs/glide/dist/css/glide.core.min.css">
+      <link rel="stylesheet" href="/static/vendor/@glidejs/glide/dist/css/glide.theme.min.css">
+      <link href="/static/css/pixel.css" rel="stylesheet">
+      <link href="/static/css/custom.css" rel="stylesheet">
+      <title>Blue Fox Capital</title>
+      
+     
+      <link href="/static/static/css/main.83b911d8.css" rel="stylesheet">
+   </head>
+   <div class="Toastify"></div>
+   <header class="header-global">
+      <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-light navbar-transparent navbar-theme-secondary">
+         <div class="container position-relative">
+            <a class="navbar-brand me-lg-5" href="/user/my-dashboard/"><img class="navbar-brand-dark" src="/static/logo.535d34c0347215b00d47.png" alt="Logo light"> <img class="navbar-brand-light" src="/static/logo.535d34c0347215b00d47.png" alt="Logo dark" style="width: 40px; height: 45px;"></a>
+            <div class="navbar-collapse collapse me-auto" id="navbar_global">
+               <div class="navbar-collapse-header">
+                  <div class="row">
+                     <div class="col-6 collapse-brand"><a href="/user/my-dashboard/"><img src="/static/logo.535d34c0347215b00d47.png" alt="Site logo"></a></div>
+                     <div class="col-6 collapse-close"><a class="fas fa-times" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation" href="/user/dashboard#navbar_global"></a></div>
+                  </div>
+               </div>
+               <ul class="navbar-nav navbar-nav-hover align-items-lg-center show-mobile-only">
+                  <li class="nav-item"><a aria-current="page" class="nav-link d-flex active" href="{% url 'userurl:demo' %}">Overview <span class="icon icon-xs ms-auto"></span></a></li>
+                  <li class="nav-item"><a class="nav-link d-flex" href="{% url 'userurl:copy' %}">Copy Trader <span class="icon icon-xs ms-auto"></span></a></li>
+                  <li class="nav-item"><a class="nav-link d-flex" href="{% url 'userurl:market' %}">Market + <span class="icon icon-xs ms-auto"></span></a></li>
+                  <li class="nav-item"><a class="nav-link d-flex" href="{% url 'userurl:my_trades' %}">My Trade History <span class="icon icon-xs ms-auto"></span></a></li>
+                  <li class="nav-item dropdown">
+                     <a data-bs-toggle="dropdown" id="investmentsDropdown" aria-expanded="false" aria-current="page" class="nav-link d-flex active" href="/user/my-plan/">Investments <span class="icon icon-xs ms-auto"><span class="fas fa-chevron-right"></span></span></a>
+                     <div class="dropdown-menu dropdown-menu-lg" aria-labelledby="investmentsDropdown" style="padding-left: 20px;">
+                        <div class="col-auto px-0">
+                           <div class="list-group list-group-flush"><a class="font-small fw-bold d-flex" href="{% url 'userurl:demo' %}" style="padding-left: 20px; border-left: 2px solid rgb(153, 153, 153);">Overview <span class="icon icon-xs ms-auto"></span></a><a class="font-small fw-bold d-flex mt-2" href="/user/plan/" style="padding-left: 20px; border-left: 2px solid rgb(153, 153, 153);">Packages <span class="icon icon-xs ms-auto"></span></a></div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="nav-item"><a class="nav-link d-flex" href="{% url 'userurl:depo' %}">Wallet Deposit <span class="icon icon-xs ms-auto"></span></a></li>
+
+                  <li class="nav-item"><a class="nav-link d-flex" href="{% url 'userurl:withal' %}">Wallet Withdrawal <span class="icon icon-xs ms-auto"></span></a></li>
+                  <li class="nav-item"><a class="nav-link d-flex" href="/user/downlines/">Downlines <span class="icon icon-xs ms-auto"></span></a></li>
+                 
+                  <li class="nav-item">
+                     <a data-bs-toggle="dropdown" id="accountDropdown" aria-expanded="false" aria-current="page" class="nav-link d-flex active" href="{% url 'userurl:demo' %}">My Account <span class="icon icon-xs ms-auto"><span class="fas fa-chevron-right"></span></span></a>
+                     <div class="dropdown-menu dropdown-menu-lg mb-3" aria-labelledby="accountDropdown" style="padding-left: 20px;">
+                        <div class="col-auto px-0">
+                           <div class="list-group list-group-flush"><a class="font-small fw-bold d-flex" href="/user/profile/" style="padding-left: 20px; border-left: 2px solid rgb(153, 153, 153);">Profile <span class="icon icon-xs ms-auto"></span></a><a class="font-small fw-bold d-flex mt-2" href="{% url 'userurl:demo' %}" style="padding-left: 20px; border-left: 2px solid rgb(153, 153, 153);">Security <span class="icon icon-xs ms-auto"></span></a><a aria-current="page" class="font-small fw-bold d-flex mt-2 active" href="{% url 'userurl:logout' %}" style="padding-left: 20px; border-left: 2px solid rgb(153, 153, 153);">Sign Out <span class="icon icon-xs ms-auto"></span></a></div>
+                        </div>
+                     </div>
+                  </li>
+                 
+               </ul>
+               <ul class="navbar-nav navbar-nav-hover align-items-lg-center show-not-mobile">
+                  <li class="nav-item"><a aria-current="page" class="nav-link active" href="{% url 'userurl:demo' %}">Dashboard</a></li>
+                  <li class="nav-item dropdown">
+                     <a id="dashboardDropdown" aria-expanded="false" data-bs-toggle="dropdown" aria-current="page" class="nav-link dropdown-toggle active" href="/user/dashboard">Account <span class="fas fa-angle-down nav-link-arrow ms-1"></span></a>
+                     <div class="dropdown-menu dropdown-megamenu-sm px-0 py-2 p-lg-4" aria-labelledby="dashboardDropdown">
+                        <div class="row">
+                           <div class="col-6">
+                              <h6 class="d-block mb-3 text-primary">My Investments</h6>
+                              <ul class="list-style-none mb-4">
+                                 <li class="mb-2 megamenu-item"><a class="megamenu-link" href="{% url 'userurl:my-plan' %}">Overview</a></li>
+                                 <li class="mb-2 megamenu-item"><a class="megamenu-link" href="/user/plan/">Packages</a></li>
+                              </ul>
+                              <h6 class="d-block mb-3 text-primary">My Account</h6>
+                              <ul class="list-style-none mb-4">
+                                 <li class="mb-2 megamenu-item"><a class="megamenu-link" href="/user/profile/">Profile</a></li>
+                                 <li class="mb-2 megamenu-item"><a class="megamenu-link" href="{% url 'userurl:demo' %}">Demo</a></li>
+                                 
+                              </ul>
+                              <h6 class="d-block mb-3 text-primary">Referral</h6>
+                              <ul class="list-style-none">
+                                 <li class="mb-2 megamenu-item"><a class="megamenu-link" href="/user/downlines/">Downlines</a></li>
+                              </ul>
+                           </div>
+                           <div class="col-6">
+                              <h6 class="d-block mb-3 text-primary">Trader</h6>
+                              <ul class="list-style-none mb-4">
+                                 <li class="mb-2 megamenu-item"><a class="megamenu-link" href="/user/market/">Market +</a></li>
+                                 <li class="mb-2 megamenu-item"><a class="megamenu-link" href="/user/my-trades/">My Trade History</a></li>
+                                 <li class="mb-2 megamenu-item"><a class="megamenu-link" href="/user/copy-trade/">Copy Trader</a></li>
+                              </ul>
+                              <h6 class="d-block mb-3 text-primary">Transactions</h6>
+                              <ul class="list-style-none mb-4">
+                  
+                                 <li class="mb-2 megamenu-item"><a class="megamenu-link" href="{% url 'userurl:depo' %}">Deposit</a></li>
+                                 <li class="mb-2 megamenu-item"><a class="megamenu-link" href="{% url 'userurl:withal' %}">Withdraw</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="supportDropdown" aria-expanded="false" href="{% url 'userurl:demo' %}">Demo Account <span class="fas fa-angle-down nav-link-arrow ms-1"></span></a>
+                     <div class="dropdown-menu dropdown-menu-lg" aria-labelledby="supportDropdown">
+                      
+                     </div>
+                  </li>
+               </ul>
+            </div>
+            <div class="d-flex align-items-center"><button class="btn btn-secondary"><span class="fas fa-wallet" style="margin-right: 8px;"></span>${{user.demon}}&nbsp; <i class="fa fa-caret-down"></i></button><button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button></div>
+         </div>
+      </nav>
+   </header>
+   <body>
+      
+      <div id="root">
+       
+         <main>
+            <div class="section section-lg pt-5 pt-md-7 bg-gray-200">
+               <div class="container">
+                  <div class="row pt-5 pt-md-0">
+                     {% include 'dash/head.html' %}
+                     <div class="col-12 col-lg-8">
+                        <div class="row">
+                           <div class="col-12 col-sm-6 mb-4">
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-block d-flex align-items-center">
+                                    <div class="icon icon-shape icon-md icon-shape-primary rounded-circle me-3 mb-4 mb-md-0"><span class="fas fa-wallet"></span></div>
+                                    <div>
+                                       <span class="d-block h6 fw-normal">Demo Balance</span>
+                                       <h5 class="h3 fw-bold mb-1">${{user.demon}}</h5>
+                                       <div class="small mt-2"><small>Investments are added after it elapses</small></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-12 col-sm-6 mb-4">
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-block d-flex align-items-center">
+                                    <div class="icon icon-shape icon-md icon-shape-primary rounded-circle me-3 mb-4 mb-md-0"><span class="fas fa-file-invoice-dollar"></span></div>
+                                    <div>
+                                       <span class="d-block h6 fw-normal">Active Investments</span>
+                                       <h5 class="h3 fw-bold mb-1">${{user.active_inv|floatformat:2|intcomma}}</h5>
+                                       <div class="small mt-2"><span class="fas fa-angle-up text-success"></span> <span class="text-success fw-bold">$0.00</span> <small>(Increase in profit)</small></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-12 col-sm-6 mb-4">
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-block d-flex align-items-center">
+                                    <div class="icon icon-shape icon-md icon-shape-primary rounded-circle me-3 mb-4 mb-md-0"><span class="fas fa-copy"></span></div>
+                                    <div>
+                                       <span class="d-block h6 fw-normal">Active Trade Copier</span>
+                                       <h5 class="h3 fw-bold mb-1">${{user.copier|floatformat:2|intcomma}}</h5>
+                                       <div class="small mt-2"><span class="fas fa-angle-up text-success"></span> <span class="text-success fw-bold">$0.00</span> <small>(Increase in profit)</small></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-12 col-sm-6 mb-4">
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-block d-flex align-items-center">
+                                    <div class="icon icon-shape icon-md icon-shape-primary rounded-circle me-3 mb-4 mb-md-0"><span class="fas fa-area-chart"></span></div>
+                                    <div>
+                                       <span class="d-block h6 fw-normal">Active Trades</span>
+                                       <h5 class="h3 fw-bold mb-1">${{user.active_trade|floatformat:2|intcomma}}</h5>
+                                       <div class="small mt-2"><small>Opened trades</small></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-12 col-md-6 mb-4">
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+                                    <div class="d-block">
+                                       <div class="h6 fw-normal text-gray mb-2">Portfolio Activity</div>
+                                       <div class="d-flex align-items-center text-left mb-2"><span class="shape-xs rounded-circle bg-tertiary me-2"></span><span class="fw-normal small">Balance</span></div>
+                                    </div>
+                                    <div class="d-block ms-auto">
+                                       <div class="d-flex align-items-center text-right mb-2"><span class="shape-xs rounded-circle bg-dark me-2"></span><span class="fw-normal small">Investment</span></div>
+                                       <div class="d-flex align-items-center text-right"><span class="shape-xs rounded-circle bg-success me-2"></span><span class="fw-normal small">Profit</span></div>
+                                    </div>
+                                 </div>
+                                 <div class="card-body" style="padding: 10px 50px; text-align: center;">
+                                    <div style="width: 70%; height: auto; display: inline-block;">
+                                       <canvas role="img" height="300" width="372" style="display: block; box-sizing: border-box; height: 150px; width: 186px;"></canvas>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-12 col-md-6 mb-4">
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+                                    <div class="d-block">
+                                       <div class="h6 fw-normal text-gray mb-2">Earnings Activity</div>
+                                    </div>
+                                    <div class="d-block ms-auto">
+                                       <div class="d-flex align-items-center text-right mb-2"><span class="shape-xs rounded-circle bg-tertiary me-2"></span> <span class="fw-normal small">Earning</span></div>
+                                    </div>
+                                 </div>
+                                 <div class="card-body" style="padding-bottom: 27px; text-align: center;">
+                                    <div style="width: 100%; height: auto; display: inline-block;">
+                                       <canvas role="img" height="300" width="636" style="display: block; box-sizing: border-box; height: 150px; width: 318px;"></canvas>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-12 mb-4">
+                              <div class="card">
+                                 <div class="card-body"><iframe src="https://bluefoxs.capital/charts/trade/full" frameborder="0" width="100%" height="300px" title="chart"></iframe></div>
+                              </div>
+                           </div>
+                           <div class="col-12 mb-4">
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+                                    <div class="d-block">
+                                       <div class="h5 fw-normal text-gray mt-2">Recent Investments</div>
+                                    </div>
+                                    <div class="d-flex ms-auto"><button class="btn border-gray-300 btn-sm me-3 btn-white">Month</button><button class="btn btn-sm me-3 btn-tertiary">See All</button></div>
+                                 </div>
+                                 <div class="card-body">
+                                    <div>
+                                       <table id="UserTable" class="UserTable table table-hover text-light"> 
+                                          <thead> 
+                                             <tr> 
+                                                <th>Plan</th>
+                                                <th>Amount</th>
+                                                <th>Type</th>
+                                                <th>Date created</th>
+                                             </tr> 
+                                          </thead> 
+                                          <tbody> 
+                                                       {% for i in con %}
+                                                       <tr>
+                                                           <td>{{i.name}}</td>
+                                                           <td>{{i.price}}</td>
+                                                           <td>{{i.name}}</td>
+                                                           <td>{{i.created}}</td>
+                                                       </tr>
+                                                       {% endfor %}
+                                          </tbody> 
+                                       </table>
+                                       <p>No result found</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+         <div class="bg-primary text-white p-3" style="text-align: center;">Bluefox Capital © 2024</div>
+         <script src="/static/vendor/bootstrap/dist/js/bootstrap.min.js"></script><script src="/static/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script><script src="/static/assets/js/pixel.js"></script>
+         
+         
+      </div>
+     
+   </body>
+</html>

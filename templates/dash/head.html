@@ -1,0 +1,108 @@
+<div class="col-12 col-lg-4 mb-3 mb-lg-0">
+  <div class="card border-gray-300 p-2">
+    <div
+      class="card-header bg-white border-0 text-center d-flex flex-row flex-lg-column align-items-center justify-content-center px-1 px-lg-4"
+    >
+      <div class="profile-thumbnail dashboard-avatar mx-lg-auto me-3">
+        <div
+          class="card-img-top profile-image-div rounded-circle border-white"
+          alt="Bonnie Green Portrait"
+          style="background-image: url({{user.image.url}});"
+        ></div>
+      </div>
+      <span class="h5 my-0 my-lg-3 me-3 me-lg-0">Hi, {{user.username}}!</span
+      ><a href="/user/logout/">
+        <button class="btn btn-gray-300 btn-xs">
+          <span class="me-2"><span class="fas fa-sign-out-alt"></span></span>Sign
+          Out
+        </button>
+      </a>
+    </div>
+    <div class="card-body p-2 d-none d-lg-block">
+      <div class="list-group dashboard-menu list-group-sm">
+        <a
+          aria-current="page"
+          class="d-flex list-group-item border-0 list-group-item-action active"
+          href="/user/my-dashboard/"
+          >Overview
+          <span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        ><a
+          class="d-flex list-group-item border-0 list-group-item-action"
+          href="/user/copy-trade/"
+          >Copy Trader<span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        ><a
+          class="d-flex list-group-item border-0 list-group-item-action"
+          href="/user/market/"
+          >Market +<span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        ><a
+          class="d-flex list-group-item border-0 list-group-item-action"
+          href="/user/my-trades/"
+          >My Trade History<span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        ><a
+          class="d-flex list-group-item border-0 list-group-item-action"
+          href="/user/my-plan/"
+          >My Investments<span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        ><a
+          class="d-flex list-group-item border-0 list-group-item-action"
+          href="/user/plan/"
+          >Investment Packages<span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        ><a
+          class="d-flex list-group-item border-0 list-group-item-action"
+          href="/user/deposit/"
+          >Wallet Deposit<span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        ><a
+          class="d-flex list-group-item border-0 list-group-item-action"
+          href="/user/my-plan/"
+          >Transactions<span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        ><a
+          class="d-flex list-group-item border-0 list-group-item-action"
+          href="/user/withdrawal/"
+          >Wallet Withdrawal<span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        ><a
+          class="d-flex list-group-item border-0 list-group-item-action"
+          href="/user/downlines/"
+          >Downlines<span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        >
+        <a
+          class="d-flex list-group-item border-0 list-group-item-action"
+          href="/user/profile/"
+          >My Account<span class="icon icon-xs ms-auto"
+            ><span class="fas fa-chevron-right"></span
+          ></span> </a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+  var _smartsupp = _smartsupp || {};
+  _smartsupp.key = '64a226446d47e5dc42758f6599a56e4086768ec0';
+  window.smartsupp||(function(d) {
+    var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+    s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+    c.type='text/javascript';c.charset='utf-8';c.async=true;
+    c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+  })(document);
+  </script>
+  <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>

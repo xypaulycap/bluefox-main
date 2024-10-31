@@ -1,0 +1,69 @@
+{% extends 'dash/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+   <body class="">
+     
+      <div id="root">
+        
+         <main>
+            <div class="section section-lg pt-5 pt-md-7 bg-gray-200">
+               <div class="container">
+                  <div class="row pt-5 pt-md-0">
+                     {% include 'dash/head.html' %}
+                     <div class="col-12 col-lg-8">
+                        <div class="row">
+                           <div class="col-12 mb-4">
+                              <div class="h5 text-left" style="float: left;">Investments</div>
+                              <div class="text-right mb-3"><button class="btn btn-sm me-3 btn-tertiary">Select New package &nbsp;<i class="fa fa-plus"></i></button></div>
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+                                    <div class="d-block">
+                                       <div class="h5 fw-normal text-gray mt-2">Recent Investments</div>
+                                    </div>
+                                    <div class="d-flex ms-auto"><button class="btn border-gray-300 btn-sm me-3 btn-white">Month</button><button class="btn btn-sm me-3 btn-tertiary">See All</button></div>
+                                 </div>
+                                 <div class="card-body">
+                                    <div style="width: 100%; height: auto;">
+                                       <div class="table-responsive">
+                                          <table class="table">
+                                             <thead>
+                                                <tr>
+                                                   <th>Date <br> Invested</th>
+                                                   <th>Investemnt Package</th>
+                                                   <th>Investment <br> Capital</th>
+                                                   <th>Duration</th>
+                                                  
+                                                  
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                {% for i in con %}
+                                                <tr>
+                                                   <td>{{i.created}}</td>
+                                                   <td>{{i.name}}</td>
+                                                   <td>${{i.price}}</td>
+                                                   <td>${{i.profit}}</td>
+                                                  
+                                                   <td class="bg-warning text-white">{{i.duration}}</td>
+                                                </tr>
+                                                {% endfor %}
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+        
+      </div>
+     
+   </body>
+
+   {% endblock content %}

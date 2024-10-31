@@ -1,0 +1,216 @@
+{% extends 'dash/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+   <body>
+      
+      <div id="root">
+      
+         <main>
+            <div class="section section-lg pt-5 pt-md-7 bg-gray-200">
+               <div class="container">
+                  <div class="row pt-5 pt-md-0">
+                     {% include 'dash/head.html' %}
+                     <div class="col-12 col-lg-8">
+                        <div class="row">
+                           <div class="col-md-6 mb-3">
+                              <div class="card">
+                                 <div class="card-body">
+                                    <div class="d-block h6 fw-normal">
+                                       <div class="d-flex" style="justify-content: space-between;">
+                                          <h3 class="h5 mb-3" style="border-bottom: 3px solid rgb(0, 0, 0); padding: 0px 10px 10px 5px; display: inline-block;">Copy Trader </h3>
+                                          <div><button class="btn btn-link" style="font-size: 17px;"><i class="fa fa-circle-arrow-left"></i> Back</button></div>
+                                       </div>
+                                       <center>
+                                          <div class="profile-thumbnail dashboard-avatar mx-lg-auto me-3 mb-2">
+                                             <div class="card-img-top profile-image-div rounded-circle border-white" alt="Image" style="background-image: url({{data.image.url}});"></div>
+                                          </div>
+                                          <h5>#{{data.track_id}}</h5>
+                                          <h6>{{data.fullname}}<i class="fa fa-check-circle" style="color: green;"></i></h6>
+                                          <span>Joined: {{data.join}}</span>
+                                          <div class="mt-2"><b><i class="fa fa-circle" style="font-size: 11px; color: green;"></i> &nbsp; Active</b></div>
+                                       
+                               
+                                        <form action="{% url 'userurl:sub' %}" method="post">
+                                                {% csrf_token %}
+                                                   {% include 'messages.html' %}
+                                        <input class="form-control form-control-sm" name="id" type="hidden" value="{{data.track_id}}">
+                                        <input class="form-control form-control-sm" name="email" type="hidden" value="{{user.email}}">
+                                                <input class="form-control form-control-sm" name="pro" type="hidden" value="{{data.fullname}}">
+                                                <input class="form-control form-control-sm" name="price" type="text" placeholder="Amount">
+                                                <div class="mb-2 mt-3">
+                                                   <label for="walletInput" style="font-size: 12px;">Maximum Trade Duration</label>
+                                                   <div class="input-group">
+                                                      <select class="form-control" name="du" style="font-size: 13px;">
+                                                         <option value="">-- Select --</option>
+                                                         <option value="1day">1day</option>
+                                                         <option value="2days">2days</option>
+                                                         <option value="5days">5days</option>
+                                                         <option value="1week">1week</option>
+                                                         <option value="2weeks">2weeks</option>
+                                                         <option value="1month">1month</option>
+                                                      </select>
+                                                   </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary btn-md mt-4">Subscribe <i class="fa fa-spinner fa-spin"></i></button>
+
+                                               </form>
+                                             
+                                       </center>
+                                       <br>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="card mb-3">
+                                 <div class="card-body d-block " style="padding-bottom: 220px; background-image: url(https://app.bluefoxs.capital/static/media/trader.22c2bb761370e2dabc48.png); background-position: 100px 150px; background-size: 400px; background-repeat: no-repeat;">
+                                    <div>
+                                       <div class="row mb-4">
+                                          <div class="col-6">
+                                             <span>Total Equity:</span>
+                                             <h5 class="h5 fw-bold mb-1">${{data.to_equity}}</h5>
+                                             <div class="small mt-2 text-success"><span class="fas fa-angle-up "></span><span class=" fw-bold">(12%)</span></div>
+                                          </div>
+                                          <div class="col-6">
+                                             <span>My Equity:</span>
+                                             <h5 class="h5 fw-bold mb-1">${{data.my_equity}}</h5>
+                                             <div class="small mt-2 text-success"><span class="fas fa-angle-up "></span><span class=" fw-bold">$0.00</span></div>
+                                          </div>
+                                       </div>
+                                       <div class="row mb-2">
+                                          <div class="col-5" style="font-size: 13px;">
+                                             <span>Profit:</span>
+                                             <h5 class="h5 fw-bold mb-1">${{data.profit}}</h5>
+                                          </div>
+                                          <div class="col-4" style="font-size: 13px;">
+                                             <span>Loss:</span>
+                                             <h5 class="h5 fw-bold mb-1">${{data.loss}}</h5>
+                                          </div>
+                                          <div class="col-3" style="font-size: 13px;">
+                                             <span>Risk:</span>
+                                             <h5 class="h5 fw-bold mb-1">10</h5>
+                                          </div>
+                                       </div>
+                                       <div class="row mb-4">
+                                          <div class="col-4" style="font-size: 14px;">
+                                             <span>Min. Equity:</span>
+                                             <h5 class="h5 fw-bold mb-1">${{data.min}}</h5>
+                                          </div>
+                                          <div class="col-4" style="font-size: 14px;">
+                                             <span>Copiers:</span>
+                                             <h5 class="h5 fw-bold mb-1">{{data.copier}}</h5>
+                                          </div>
+                                          <div class="col-4" style="font-size: 14px;">
+                                             <span>Commission:</span>
+                                             <h5 class="h5 fw-bold mb-1">10%</h5>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row mb-3">
+                           <div class="col-md-12">
+                              <div class="card">
+                                 <div class="card-body">
+                                    <div>
+                                       <div class="mt-2">
+                                          <div class="mb-2"><b><i class="fa fa-star"></i> Expert</b></div>
+                                          <div class="mb-2"><b>Description :</b></div>
+                                          <b>I help struggling traders  become Profitable</b>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-12">
+                              <div class="card border-gray-300">
+                                 <div class="card-body">
+                                    <div class="d-block">
+                                       <div class="h5 fw-normal text-gray mt-2">Recent Trades</div>
+                                    </div>
+                                    <div style="width: 100%; max-height: 400px; overflow: auto;">
+                                       <div class="table-responsive">
+                                          <table class="table">
+                                             <thead>
+                                                <tr>
+                                                   <th>Symbol</th>
+                                                   <th>Order Type</th>
+                                                   <th>T/P %</th>
+                                                   <th>Entry</th>
+                                                   <th>Direction</th>
+                                                   <th><i class="fa fa-clock"></i></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td style="background-color: green; color: rgb(255, 255, 255);">ETHUSDT</td>
+                                                   <td>Market execution</td>
+                                                   <td>90</td>
+                                                   <td>----</td>
+                                                   <td>buy</td>
+                                                   <td>2024-02-28T12:20:00.000000Z</td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="background-color: green; color: rgb(255, 255, 255);">BTCUSDT</td>
+                                                   <td>Market execution</td>
+                                                   <td>70</td>
+                                                   <td>----</td>
+                                                   <td>buy</td>
+                                                   <td>2023-07-29T12:17:00.000000Z</td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="background-color: green; color: rgb(255, 255, 255);">DOTUSDT</td>
+                                                   <td>Market execution</td>
+                                                   <td>120</td>
+                                                   <td>----</td>
+                                                   <td>buy</td>
+                                                   <td>2023-07-20T12:16:00.000000Z</td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="background-color: green; color: rgb(255, 255, 255);">USDJPY</td>
+                                                   <td>Market execution</td>
+                                                   <td>100</td>
+                                                   <td>----</td>
+                                                   <td>buy</td>
+                                                   <td>2023-07-07T12:16:00.000000Z</td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="background-color: green; color: rgb(255, 255, 255);">BTCUSDT</td>
+                                                   <td>Market execution</td>
+                                                   <td>90</td>
+                                                   <td>----</td>
+                                                   <td>buy</td>
+                                                   <td>2023-06-23T12:15:00.000000Z</td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="background-color: green; color: rgb(255, 255, 255);">SOLUSDT</td>
+                                                   <td>Market execution</td>
+                                                   <td>78</td>
+                                                   <td>----</td>
+                                                   <td>buy</td>
+                                                   <td>2023-05-04T12:15:00.000000Z</td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+        
+      </div>
+    
+   </body>
+{% endblock content %}

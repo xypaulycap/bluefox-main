@@ -1,0 +1,104 @@
+{% extends 'dash/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+   <body>
+    
+      <div id="root">
+        
+         <main>
+            <div class="section section-lg pt-5 pt-md-7 bg-gray-200">
+               <div class="container">
+                  <div class="row pt-5 pt-md-0">
+                     {% include 'dash/head.html' %}
+                     <div class="col-12 col-lg-8">
+                        <div class="row">
+                           <div class="col-lg-12">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                   <div class="pt-4 modal-body">
+                                      <div class="col-12" style="padding: 5px 10px;">
+                                         <div class="text-left">
+                                            <div class="bg-primary text-white" style="display: inline-block; padding: 5px 10px; border-radius: 10px; font-size: 13px;">Trader Panel</div>
+                                            <br>
+                                           <form action="" method="post">
+                                            {% csrf_token %}
+                                        {% include 'messages.html' %}
+                                            <div>
+                                                <div class="mb-2 mt-3">
+                                                   <label for="symbolInput" style="font-size: 13px;">Symbol:</label>
+                                                   <h2>{{data.name}}</h2>
+                                                </div>
+                                                <div class="mb-2 mt-3">
+                                                   <label for="amountInput" style="font-size: 13px;">Amount to trade ($)</label>
+                                                   <div class="input-group"><input type="number" class="form-control" placeholder="0.00" name="ammount" style="font-size: 13px;"></div>
+                                                </div>
+                                                <div class="mb-2 mt-3">
+                                                   <label for="tpInput" style="font-size: 13px;">Take Profit %</label>
+                                                   <div class="input-group"><input type="number" class="form-control" placeholder="0" name="pro" style="font-size: 13px;"></div>
+                                                </div>
+                                                <div class="mb-2 mt-3">
+                                                   <label for="orderTypeInput" style="font-size: 13px;">Execution Type</label>
+                                                   <div class="input-group">
+                                                      <select class="form-control" name="type" style="font-size: 13px;">
+                                                         <option value="">-- Select --</option>
+                                                         <option value="market execution">Market Execution</option>
+                                                         <option value="limit order">Limit Order</option>
+                                                      </select>
+                                                   </div>
+                                                </div>
+                                                <div class="mb-2 mt-3">
+                                                    <label for="orderTypeInput" style="font-size: 13px;">Order Type</label>
+                                                    <div class="input-group">
+                                                       <select class="form-control" name="con" style="font-size: 13px;">
+                                                          <option value="">-- Select --</option>
+                                                          <option value="market execution">Buy</option>
+                                                          <option value="limit order">Sell</option>
+                                                       </select>
+                                                    </div>
+                                                 </div>
+                                               <input name="stock" type="hidden" value="{{data.name}}">
+                                                <div class="mb-2 mt-3">
+                                                   <label for="walletInput" style="font-size: 12px;">Maximum Trade Duration</label>
+                                                   <div class="input-group">
+                                                      <select class="form-control" name="du" style="font-size: 13px;">
+                                                         <option value="">-- Select --</option>
+                                                         <option value="1minute">1minute</option>
+                                                         <option value="2minutes">2minutes</option>
+                                                         <option value="3minutes">3minutes</option>
+                                                         <option value="5minutes">5minutes</option>
+                                                         <option value="15minutes">15minutes</option>
+                                                         <option value="30minutes">30minutes</option>
+                                                         <option value="45minutes">45minutes</option>
+                                                         <option value="1hour">1hour</option>
+                                                         <option value="5hours">5hours</option>
+                                                         <option value="1day">1day</option>
+                                                         <option value="2days">2days</option>
+                                                         <option value="5days">5days</option>
+                                                         <option value="1week">1week</option>
+                                                         <option value="2weeks">2weeks</option>
+                                                         <option value="1month">1month</option>
+                                                      </select>
+                                                   </div>
+                                                </div>
+                                                <div class="d-flex mt-4"><button class="btn btn-danger" type="submit"  style="padding: 10px 40px; margin-right: 20px;">Sell</button><button type="submit" class="btn btn-success"  style="padding: 10px 40px; margin-right: 20px; color: rgb(255, 255, 255);">Buy</button></div>
+                                             </div>
+                                           </form>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+        
+      </div>
+     
+   </body>
+
+   {% endblock content %}

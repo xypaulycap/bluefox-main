@@ -1,0 +1,106 @@
+{% extends 'dash/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+   <body>
+
+      <div id="root">
+        
+         <main>
+            <div class="section section-lg pt-5 pt-md-7 bg-gray-200">
+               <div class="container">
+                  <div class="row pt-5 pt-md-0">
+                     {% include 'dash/head.html' %}
+                     <div class="col-12 col-lg-8">
+                        <div class="row">
+                           <div class="col-lg-12">
+                              <div class="card card-body bg-white border-gray-300 mb-4">
+                                 <h2 class="h5 mb-4">General information</h2>
+                                 <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                       <div class="mb-3"><label for="first_name">Fullname</label> <input class="form-control" id="first_name" type="text" placeholder="Enter your first name" readonly value="{{user.fullname}}"></div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                       <div class="mb-3"><label for="last_name">Lastname</label> <input class="form-control" id="last_name" type="text" placeholder="Also your last name" readonly value="{{user.username}}"></div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                       <div class="mb-3"><label for="email">Email</label> <input class="form-control" id="email" type="email" placeholder="name@company.com" readonly value="{{user.email}}"></div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                       <div class="mb-3"><label for="phone">Phone</label> <input class="form-control" id="phone" type="text" placeholder="Eg. +12-345 678 910" value="{{user.phone}}"></div>
+                                    </div>
+                                 </div>
+                                 <div class="row align-items-center">
+                                   
+                                    <div class="col-md-6 mb-3">
+                                       <div class="mb-3"><label for="phone">Gender</label> <input class="form-control" id="phone" type="text" placeholder="Eg. +12-345 678 910" value="{{user.sex}}"></div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                       <div class="mb-3"><label for="phone">Country</label> <input class="form-control" id="phone" type="text" placeholder="Eg. +12-345 678 910" value="{{user.country}}"></div>
+                                    </div>
+                                 </div>
+                                 <div class="row mt-3">
+                                    <div class="col-md-12 mb-3">
+                                       <div class="mb-3"><label for="address">Address</label> <input class="form-control" id="address" type="text" placeholder="Enter your home address" value="{{user.address}}"></div>
+                                    </div>
+                                 </div>
+                                 <div class="mt-2"><button class="btn btn-primary" disabled="">Save All</button></div>
+                              </div>
+                              <div class="card card-body bg-white border-gray-300 mb-4">
+                                 <h2 class="h5 mb-4">Select profile photo</h2>
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-1 mb-2 mb-lg-0">
+                                       <div class="avatar-lg">
+                                          <div class="rounded-circle profile-image-display-div" alt="change avatar" style="background-image: url({{user.image.url}});"></div>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-6 mb-3 mb-lg-0">
+                                       <div class="h6 mb-0 ms-lg-3">Your avatar</div>
+                                       <small class="text-gray ms-lg-3">JPG, GIF or PNG. Max size of 10M</small>
+                                    </div>
+                                   
+                                 </div>
+                              </div>
+                              <div class="card card-body bg-white border-gray-300">
+                                 <div class="row">
+                                    <div class="col-6 text-left">
+                                       <h2 class="h5 mb-4">My Withdrawal Addresses</h2>
+                                    </div>
+                                    <div class="col-6 text-right"><button class="btn btn-link btn-sm text-tertiary"><i class="fa fa-plus"></i> New Wallet</button></div>
+                                 </div>
+                                 <div class="table-responsive">
+                                    <table class="table">
+                                       <thead>
+                                          <tr>
+                                             <th>Currency</th>
+                                             <th>Address</th>
+                                             <th>Action</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          {% for i in wa %}
+                                          <tr>
+                                             <td>{{i.name}}</td>
+                                             <td>{{i.wallet}}</td>
+                                             <td><button class="btn btn-link"><i class="fa fa-trash text-danger"></i></button></td>
+                                          </tr>
+                                          {% endfor %}
+                                         
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+      
+      </div>
+    
+   </body>
+{% endblock content %}

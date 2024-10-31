@@ -1,0 +1,90 @@
+{% extends 'dash/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+   <body>
+      <noscript>You need to enable JavaScript to run this app.</noscript>
+      <div id="root">
+       
+         <main>
+            <div class="section section-lg pt-5 pt-md-7 bg-gray-200">
+               <div class="container">
+                  <div class="row pt-5 pt-md-0">
+                     {% include 'dash/head.html' %}
+                     <div class="col-12 col-lg-8">
+                        <div class="row">
+                           <div class="col-md-6 mb-3">
+                              <div class="card">
+                                 <div class="card-body">
+                                    <div class="d-block h6 fw-normal">
+                                       <div class="h5 mb-3">Downlines</div>
+                                       <div class=" mt-3">
+                                          <label for="addressInput" style="font-size: 13px;">Click To Copy Referal Link To Clipboard</label>
+                                          <div class="input-group"><input type="text" class="form-control" id="addressInput" aria-label="Search" aria-describedby="basic-addon2" readonly="" value="https://app.bluefoxs.capital/auth/signup?ref=411" style="font-size: 12px;"><span class="input-group-text" id="basic-addon2"><span class="fas fa-clipboard"></span></span></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="card mb-3">
+                                 <div class="card-body d-block d-md-flex align-items-center">
+                                    <div class="icon icon-shape icon-md icon-shape-primary rounded-circle me-3 mb-4 mb-md-0"><span class="fas fa-file-invoice-dollar"></span></div>
+                                    <div>
+                                       <span class="d-block h6 fw-normal">Referral Balance</span>
+                                       <h5 class="h3 fw-bold mb-1">$0.00</h5>
+                                       <div class="small mt-2"><small>Referral Bonus from downline</small></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-12">
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+                                    <div class="d-block">
+                                       <div class="h5 fw-normal text-gray mt-2">My Downlines</div>
+                                       <small>All Refered Users</small>
+                                    </div>
+                                 </div>
+                                 <div class="card-body">
+                                    <div>
+                                       <p>No result found</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row mt-3">
+                           <div class="col-12 mb-4">
+                              <div class="card border-gray-300">
+                                 <div class="card-body d-flex flex-row align-items-center flex-0 border-bottom">
+                                    <div class="d-block">
+                                       <div class="h5 fw-normal text-gray mt-2">Earnings</div>
+                                       <small>Earnings From Downlines</small>
+                                    </div>
+                                    <div class="d-flex ms-auto"><button class="btn border-gray-300 btn-sm me-3 btn-white">Month</button><button class="btn btn-sm me-3 btn-tertiary">See All</button></div>
+                                 </div>
+                                 <div class="card-body">
+                                    <div>
+                                       <p>No result found</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+         <div class="bg-primary text-white p-3" style="text-align: center;">Bluefox Capital © 2024</div>
+      </div>
+      <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script><script src="/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script><script src="/assets/js/pixel.js"></script><iframe id="chat-application-iframe" title="Smartsupp" aria-hidden="true" style="display: block; position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; opacity: 0; border: none; z-index: -1; pointer-events: none;"></iframe>
+      <div id="smartsupp-widget-container">
+         <div data-testid="widgetButtonFrame" style="border-radius: 9999px; box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 6px 0px, rgba(0, 0, 0, 0.12) 0px 2px 32px 0px; height: 56px; position: fixed; bottom: 24px; left: initial; right: 12px; z-index: 10000000; width: 56px;"><iframe id="widgetButtonFrame" title="Smartsupp widget button" style="position: absolute; width: 100%; height: 100%; border: none; display: block; text-align: left; margin: 0px; padding: 0px; top: 0px; left: 0px; opacity: 1;" allowfullscreen="" scrolling="no"></iframe></div>
+      </div>
+   </body>
+
+{% endblock content %}
