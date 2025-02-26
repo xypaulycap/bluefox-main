@@ -37,10 +37,10 @@ ALLOWED_HOSTS = ['*']
 # EMAIL_USE_SSL = True
 
 EMAIL_HOST = 'smtp.hostinger.com'
-EMAIL_HOST_USER = 'info@managementbookingagencies.icu'
+EMAIL_HOST_USER = 'support@bluefoxcapitals.net'
 EMAIL_HOST_PASSWORD = 'Aaasssaaa1@'
-DEFAULT_FROM_EMAIL = 'info@managementbookingagencies.icu'
-SERVER_EMAIL = 'info@managementbookingagencies.icu'
+DEFAULT_FROM_EMAIL = 'support@bluefoxcapitals.net'
+SERVER_EMAIL = 'support@bluefoxcapitals.net'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 # Application definition
